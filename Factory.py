@@ -1,8 +1,6 @@
 import time
 import datetime
 import time
-import threading
-import random
 
 
 class Task:
@@ -18,13 +16,13 @@ class Task:
         self.period = period
         self.execution_time = execution_time
 
-    def sauvegarde(self):
+    def save(self):
         global tank
         global stock1
         global stock2
 
     def run(self):
-        global temps_ecoule
+        global time_spend
         global tank
         global stock1
         global stock2
@@ -85,7 +83,7 @@ class Task:
 
             self.execution_time += 1
 
-            temps_ecoule += 1
+            time_spend += 1
 
             time.sleep(1)
 
@@ -109,7 +107,7 @@ class Task:
 
 
 if __name__ == "__main__":
-    temps_ecoule = 0
+    time_spend = 0
     tank = 0
     stock1 = 0
     stock2 = 0
@@ -158,5 +156,5 @@ if __name__ == "__main__":
         incrementation += 1
 
         for task_to_run in task_list:
-            print("Current time is: " + str(temps_ecoule))
+            print("Current time is: " + str(time_spend))
             task_to_run.run()
